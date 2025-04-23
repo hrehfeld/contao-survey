@@ -506,10 +506,17 @@ class SurveyQuestionMatrix extends SurveyQuestion
                     foreach (array_keys($this->subquestions) as $k) {
                         $strAnswer = '';
 
-                        if (\is_array($arrAnswers[$k + 1])) {
+                        $answer = $arrAnswers[$k + 1];
+                        if (!empty($answer) && !\is_array($answer)) {
+                            if (intval($answer) < 1) {
+                                trigger_error("Malformed answer: {$answer}", E_USER_ERROR);
+                            }
+                            $answer = array(intval($answer) => $answer);
+                        }
+                        if (\is_array($answer)) {
                             $arrTmp = [];
 
-                            foreach (array_keys($arrAnswers[$k + 1]) as $kk) {
+                            foreach (array_keys($answer) as $kk) {
                                 $arrTmp[] = $this->choices[$kk - 1];
                             }
                             // TODO: make delimiter configurable/intelligent, though '|' is a good default, breaks in Calc
