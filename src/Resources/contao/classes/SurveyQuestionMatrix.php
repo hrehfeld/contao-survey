@@ -465,10 +465,6 @@ class SurveyQuestionMatrix extends SurveyQuestion
                             if (\array_key_exists($choice_key, $this->choices)) {
                                 $strAnswer = $this->choices[$choice_key];
                             }
-
-                            if ($emptyAnswer) {
-                                $strAnswer = ($k + 1).' - '.$strAnswer;
-                            }
                         }
 
                         if (\strlen($strAnswer)) {
@@ -522,11 +518,6 @@ class SurveyQuestionMatrix extends SurveyQuestion
                             // TODO: make delimiter configurable/intelligent, though '|' is a good default, breaks in Calc
                             $strAnswer = implode(' | ', $arrTmp);
                         }
-
-                        if ($emptyAnswer) {
-                            $strAnswer = ($k + 1).' - '.$strAnswer;
-                        }
-
                         if (\strlen($strAnswer)) {
                             $exporter->setCellValue($sheet, $row, $col, [
                                 Exporter::DATA => $strAnswer,
