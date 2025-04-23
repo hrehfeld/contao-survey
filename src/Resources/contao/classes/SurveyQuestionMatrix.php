@@ -125,7 +125,7 @@ class SurveyQuestionMatrix extends SurveyQuestion
                         $exporter->setCellValue($sheet, $row, $col + $col_counter, [Exporter::DATA => $choice, Exporter::FONTWEIGHT => Exporter::FONTWEIGHT_BOLD]);
                     }
                     // pdir
-                    $data = \array_key_exists($col_counter, $this->statistics['cumulated'][$row_counter]) ?
+                    $data = \array_key_exists($col_counter, $this->statistics['cumulated'][$row_counter] ?? []) ?
                         $this->statistics['cumulated'][$row_counter][$col_counter] :
                         0;
 
