@@ -540,11 +540,13 @@ class SurveyQuestionMultiplechoice extends SurveyQuestion
                 $arrAnswers = StringUtil::deserialize($data, true);
 
                 if ('mc_dichotomous' === $this->arrData['multiplechoice_subtype']) {
+                    if ($arrAnswers['value'] !== '') {
                     $exporter->setCellValue($sheet, $row, $col, [
                         Exporter::DATA => $this->choices[$arrAnswers['value'] - 1],
                         Exporter::ALIGNMENT => Exporter::ALIGNMENT_H_CENTER,
                         Exporter::TEXTWRAP => true,
                     ]);
+                    }
                 } elseif ('mc_singleresponse' === $this->arrData['multiplechoice_subtype']) {
                     $emptyAnswer = false;
 
