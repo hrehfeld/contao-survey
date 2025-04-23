@@ -486,7 +486,6 @@ class SurveyQuestionMatrix extends SurveyQuestion
                 } elseif ('matrix_multipleresponse' === $this->arrData['matrix_subtype']) {
                     $emptyAnswer = false;
 
-                    foreach ($this->subquestions as $k => $junk) {
                         foreach ($this->subquestions as $k => $junk) {
                             $strAnswer = '';
 
@@ -503,7 +502,6 @@ class SurveyQuestionMatrix extends SurveyQuestion
                                 $emptyAnswer = true;
                             }
                         }
-                    }
 
                     foreach (array_keys($this->subquestions) as $k) {
                         $strAnswer = '';
