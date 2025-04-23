@@ -453,6 +453,7 @@ class SurveyQuestionMatrix extends SurveyQuestion
 
                         if (0 === \strlen($strAnswer)) {
                             $emptyAnswer = true;
+                            break;
                         }
                     }
 
@@ -496,6 +497,7 @@ class SurveyQuestionMatrix extends SurveyQuestion
 
                             if (0 === \strlen($strAnswer)) {
                                 $emptyAnswer = true;
+                                break;
                             }
                         }
 

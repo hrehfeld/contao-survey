@@ -553,6 +553,7 @@ class SurveyQuestionMultiplechoice extends SurveyQuestion
                     foreach ($this->choices as $choice) {
                         if (0 === empty($choice['choice'])) {
                             $emptyAnswer = true;
+                            break
                         }
                     }
                     $strAnswer = ($emptyAnswer ? $arrAnswers['value'].' - ' : '').$this->choices[$arrAnswers['value']]['choice'];
